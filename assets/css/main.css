@@ -3870,40 +3870,77 @@ input, select, textarea {
 
 		}
 
-/* Intro */
+		/* Intro */
+		#intro {
+			background-attachment: fixed;
+			background-image: url("images/intro.svg");
+			background-position: top right;
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
 
-	#intro {
-		background-attachment: fixed;
-		background-image: url("images/intro.svg");
-		background-position: top right;
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
-	}
-
+		/* Intro text */
 		#intro p {
 			font-size: 1.25em;
 		}
 
-			@media screen and (max-width: 980px) {
-
-				#intro p br {
-					display: none;
-				}
-
-			}
-
-			@media screen and (max-width: 736px) {
-
-				#intro p {
-					font-size: 1em;
-				}
-
-			}
-
-		@media screen and (max-width: 1280px) {
-
-			#intro {
-				background-attachment: scroll;
-			}
-
+		/* Layout: intro text on left, profile picture on right */
+		.profile-layout {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			gap: 2rem;
+			flex-wrap: wrap;
 		}
+
+		/* Left side (text) */
+		.intro-text {
+			flex: 1;
+		}
+
+		/* Right side (photo) */
+		.intro-photo {
+			flex-shrink: 0;
+		}
+
+		/* Circular profile picture */
+		.profile-pic {
+			width: 220px;
+			height: 220px;
+			border-radius: 50%;
+			object-fit: cover;
+			box-shadow: 0 0 16px rgba(0, 0, 0, 0.2);
+		}
+		
+		
+		
+
+		/* MEDIA QUERIES */
+
+		/* Hide <br> tags on small screens */
+		@media screen and (max-width: 980px) {
+			#intro p br {
+				display: none;
+			}
+		}
+
+		/* Shrink text on smaller screens */
+		@media screen and (max-width: 736px) {
+			#intro p {
+				font-size: 1em;
+			}
+		}
+
+		/* Responsive layout: stack text and photo vertically */
+		@media screen and (max-width: 768px) {
+			.profile-layout {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+
+			.intro-photo {
+				margin-top: 1rem;
+			}
+		}
+
+
