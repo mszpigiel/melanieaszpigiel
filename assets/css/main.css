@@ -3941,4 +3941,59 @@ input, select, textarea {
 			}
 		}
 
+				
+		.features {
+		display: flex !important;    /* force flex even if other rules try to change it */
+		flex-wrap: nowrap;           /* single row on large screens */
+		gap: 2rem;
+		align-items: stretch;
+		border-radius: 0.25em;
+		border: solid 1px rgba(255,255,255,0.15);
+		background: rgba(255,255,255,0.05);
+		margin: 0 0 2em 0;
+		}
+
+		.features section {
+		flex: 0 0 25%;              /* four equal columns */
+		width: 25%;
+		box-sizing: border-box;
+		padding: 2.5em 3em 1em 4em; /* adjust if text overflows */
+		border-top: solid 1px rgba(255,255,255,0.15);
+		position: relative;
+		}
+
+		/* remove top border for the first row (first 4 items) */
+		.features section:nth-child(-n+4) {
+		border-top-width: 0 !important;
+		}
+
+		/* medium screens: wrap to 2 per row */
+		@media screen and (max-width: 1200px) {
+		.features {
+			flex-wrap: wrap;
+		}
+		.features section {
+			flex: 0 0 50%;
+			width: 50%;
+		}
+		}
+
+		/* small screens: stack vertically */
+		@media screen and (max-width: 980px) {
+		.features {
+			display: flex !important; /* keep flex but allow wrapping (so we can control widths) */
+		}
+		.features section {
+			flex: 0 0 100%;
+			width: 100%;
+			padding: 2em 1.5em 0.1em 1.5em;
+			border-left-width: 0 !important;
+			border-top-width: 1px !important;
+		}
+		.features section:first-child {
+			border-top-width: 0 !important;
+		}
+		}
+
+
 
